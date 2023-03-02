@@ -9,7 +9,6 @@ import { getEmployee } from './server-apis/getEmployees';
 
 
 function App() {
-  //const arrayDataItems = data.map((val) => <li>{val}</li>);
 
   const [data, setUsers] = useState(['data'])
 //   useEffect(()=>{
