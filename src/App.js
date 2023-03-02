@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import axios from 'axios';
+import React,{useEffect, useState} from 'react';
+import data from './data';
+import { getEmployee } from './server-apis/getEmployees';
+//import { axiosInstance } from './Config/axiosConfig';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  //const arrayDataItems = data.map((val) => <li>{val}</li>);
+
+  const [data, setUsers] = useState(['data'])
+//   useEffect(()=>{
+//     getEmployee().then(response =>{
+//       console.log("Employee Data Response =>",response);
+//     }).catch(e=>console.log(e));
+//   },[]);
+axios.get('http://localhost:3000/data/').then
+(response => console.log("Api Response -",response))
+setUsers(data)
+.catch(err => console.log("Api Error -",err))
+
+  // useEffect(()=>{
+  //   getEmployee().then(response =>{
+  //     console.log("Employee Data Response =>",response);
+  //   }).catch(e=>console.log(e));
+  //  // axios.get('').then(response => console.log("Api Response -",response)).catch(err => console.log("Api Error -",err))
+  // },[]);
+ 
 }
 
 export default App;
